@@ -1,7 +1,6 @@
 .header {
     background-color: #fff;
     padding: 20px;
-    border-bottom: 1px solid #eaeaea;
   }
   
   .navbar {
@@ -18,7 +17,7 @@
   }
   
   .navbar-links a {
-    margin-left: 20px;
+    margin-left: 30px; /* Increased margin from 20px to 30px for more spacing */
     text-decoration: none;
     color: #000;
     font-weight: 500;
@@ -26,7 +25,7 @@
   
   .linktree-button {
     background-color: #000;
-    color: #fff;
+    color: #eee !important; /* Ensuring the text color is white */
     padding: 10px 15px;
     border-radius: 5px;
     text-decoration: none;

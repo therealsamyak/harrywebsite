@@ -1,20 +1,31 @@
 .footer {
     background-color: #fff;
-    padding: 20px;
-    text-align: center;
+    text-align: center; /* Center text and inline elements horizontally */
     position: relative;
     bottom: 0;
     width: 100%;
+    display: flex; /* Flexbox for alignment */
+    justify-content: center; /* Center content horizontally */
+    align-items: center; /* Center content vertically */
+    flex-direction: row; /* Stack items vertically */
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+  
+  .social-links {
+    display: flex; /* Use flexbox for social icons */
+    justify-content: center; /* Center the social icons horizontally */
+    align-items: center; /* Ensure icons are vertically aligned */
+    gap: 20px; /* Space between the icons */
   }
   
   .social-links a {
     color: #888888;
-    margin: 0 10px;
     font-size: 24px;
     text-decoration: none;
   }
   
   .social-links a:hover {
-    color: #333333; /* Darker color on hover, closer to black */
-}
+    color: #333333; /* Darker color on hover */
+  }
   

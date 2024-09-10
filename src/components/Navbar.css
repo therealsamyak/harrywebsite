@@ -1,33 +1,27 @@
 .header {
-    background-color: #fff;
-    padding: 20px;
-  }
-  
-  .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-  
-  .navbar-brand {
-    font-size: 24px;
-    font-weight: bold;
-  }
-  
-  .navbar-links a {
-    margin-left: 30px; /* Increased margin from 20px to 30px for more spacing */
-    text-decoration: none;
-    color: #000;
-    font-weight: 500;
-  }
-  
-  .linktree-button {
-    background-color: #000;
-    color: #eee !important; /* Ensuring the text color is white */
-    padding: 10px 15px;
-    border-radius: 5px;
-    text-decoration: none;
-  }
-  
+  background-color: #fff;
+  padding: 20px;
+}
+
+.navbar {
+  display: flex;
+  justify-content: flex-end; /* Move the links to the right */
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.navbar-links a {
+  margin-left: 30px; /* Increased margin for spacing */
+  text-decoration: none;
+  color: #000;
+  font-weight: 500;
+}
+
+.linktree-button {
+  background-color: #000;
+  color: #eee !important; /* Ensuring the text color is white */
+  padding: 10px 15px;
+  border-radius: 5px;
+  text-decoration: none;
+}

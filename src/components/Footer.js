@@ -1,7 +1,7 @@
 import React from 'react';
 import './Footer.css'; // Import a CSS file for footer styling
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faInstagram, faYoutube, faFacebook, faLinkedin } from '@fortawesome/free-brands-svg-icons'; // Import icons from FontAwesome
+import { faInstagram, faYoutube, faSoundcloud, faLinkedin } from '@fortawesome/free-brands-svg-icons'; // Import icons from FontAwesome
 
 const Footer = () => {
   return (
@@ -17,14 +17,9 @@ const Footer = () => {
           <FontAwesomeIcon icon={faYoutube} className="social-icon" />
         </a>
 
-        {/* Facebook Link */}
-        <a href="" target="_blank" rel="noopener noreferrer">
-          <FontAwesomeIcon icon={faFacebook} className="social-icon" />
-        </a>
-
-        {/* LinkedIn Link */}
-        <a href="https://www.linkedin.com/in/harry-ross-b51396282/" target="_blank" rel="noopener noreferrer">
-          <FontAwesomeIcon icon={faLinkedin} className="social-icon" />
+        {/* SoundCloud Link */}
+        <a href="https://on.soundcloud.com/doNMECbvuH7BeGhx9" target="_blank" rel="noopener noreferrer">
+          <FontAwesomeIcon icon={faSoundcloud} className="social-icon" />
         </a>
       </div>
     </footer>

@@ -6,7 +6,7 @@ import './HomeNavbar.css'; // Custom CSS for navbar
 function HomeNavbar() {
   return (
     <nav className="home-navbar">
-      <ul className="navbar-links">
+      <ul className="homenavbar-links">
         <li><Link to="/art">ART</Link></li>
         <li><Link to="/films">FILMS</Link></li>
         <li><Link to="/story">STORY</Link></li>

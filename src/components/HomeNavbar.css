@@ -1,34 +1,62 @@
-/* src/components/HomeNavbar.css */
 .home-navbar {
     display: flex;
     justify-content: center; /* Centers the navbar container horizontally */
-    margin-top: 20px;
   }
   
-  .navbar-links {
+  .homenavbar-links {
     list-style-type: none;
     display: flex;
     justify-content: center; /* Centers the links within the navbar */
     padding: 0;
   }
   
-  .navbar-links li {
+  .homenavbar-links li {
     display: flex; /* Add flexbox to the list item */
     align-items: center; /* Vertically center the content */
     justify-content: center; /* Horizontally center the content */
-    font-size: 1.5rem;
-    font-weight: bold;
-    margin: 0 15px;
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 300;
+    margin: 0 30px; /* Increased the margin between the list items */
+    position: relative; /* Required for the pseudo-element positioning */
   }
   
-  .navbar-links li a {
+  .homenavbar-links li a {
     color: black;
     text-decoration: none;
-    display: inline-block; /* Ensure the anchor behaves like a block element inside the list item */
-    padding: 10px; /* Optional: Add some padding around the anchor */
+    display: flex; /* Use flexbox to align the content */
+    align-items: center; /* Vertically center the text */
+    justify-content: center; /* Horizontally center the text */
+    padding: 10px; /* Optional: Adjust padding to ensure space around the text */
+    width: auto; /* Adjust this to fit the content, or set to 100% if necessary */
+    height: auto; /* Ensure the height adapts to the content */
+    position: relative;
+    z-index: 1; /* Keep the highlight behind the text */
+    margin: 0; /* Ensure no margins are affecting layout */
+    line-height: normal; /* Reset line-height if it was customized */
+    vertical-align: middle; /* Align the text vertically */
   }
   
-  .navbar-links li a:hover {
-    text-decoration: underline;
+  .homenavbar-links li {
+    display: inline-block; /* Ensures list item adjusts properly to the anchor */
+    padding: 0; /* Reset any list item padding */
+  }
+  
+  .homenavbar-links li::before {
+    content: '';
+    position: absolute;
+    bottom: 0; /* Position the highlight background at the bottom */
+    left: 0;
+    right: 0;
+    height: 100%; /* Highlight covers full height */
+    background-color: rgba(255, 223, 0, 0.3); /* Add highlight color (faded yellow in this case) */
+    transform: scaleX(0); /* Start hidden */
+    transform-origin: left; /* Start the scale from the left */
+    transition: transform 0.4s ease-in-out; /* Smooth transition for the highlight */
+    z-index: 0; /* Make sure highlight is behind the text */
+  }
+  
+  .homenavbar-links li:hover::before {
+    transform: scaleX(1); /* Expand the highlight when hovered */
   }
   

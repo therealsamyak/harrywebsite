@@ -4,8 +4,7 @@
     flex-direction: column; /* Stack items vertically */
     align-items: center;    /* Center horizontally */
     justify-content: center; /* Center vertically */
-    height: 100vh; /* Ensure the container takes up the full viewport height */
-    background-color: #f0f8ff; /* Optional: Add a background color if needed */
+    height: 100vh; /* Ensure the container takes up the full viewport height */ /* Optional: Add a background color if needed */
     text-align: center;
   }
   
@@ -20,9 +19,11 @@
   }
   
   .homepage-image {
-    max-width: 100%;
-    height: auto;
+    height: 400px; /* Set a specific height (adjust as needed) */
+    width: auto; /* Ensure the width adjusts automatically to maintain aspect ratio */
+    object-fit: cover; /* Or 'contain' if you want the entire image to be visible within the height */
   }
+  
   
   .footer-text {
     font-size: 1.5rem;
@@ -30,3 +31,22 @@
     font-weight: bold;
   }
   
+  .navbar-links {
+    display: flex;
+    justify-content: space-around; /* Or use space-between */
+    align-items: center;
+    list-style-type: none; /* Remove default bullet points */
+    padding: 0; /* Ensure no extra padding */
+    margin: 0; /* Ensure no extra margin */
+}
+
+.navbar-links li {
+    flex: 1; /* This makes sure each link takes equal space */
+    text-align: center; /* Centers the text in the li */
+    padding: 10px; /* Add padding for better clickability */
+}
+
+.navbar-links a {
+    text-decoration: none;
+    color: #000; /* Adjust color to your design */
+}

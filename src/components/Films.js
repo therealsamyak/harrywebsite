@@ -43,6 +43,7 @@ function Films() {
 
   return (
     <section className="section films">
+      <h1>Films</h1>
       {/* Responsive Embedded YouTube Videos */}
       {videoUrls.length > 0 ? (
         videoUrls.map((url, index) => (
@@ -57,7 +58,7 @@ function Films() {
           </div>
         ))
       ) : (
-        <p>Loading videos...</p>
+        <p></p>
       )}
     </section>
   );

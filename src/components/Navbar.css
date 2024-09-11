@@ -14,14 +14,26 @@
 .navbar-links a {
   margin-left: 30px; /* Increased margin for spacing */
   text-decoration: none;
-  color: #000;
+  color: #000; /* Default color for all links */
   font-weight: 500;
+  transition: color 0.3s ease; /* Smooth transition for hover color change */
 }
 
+/* Same hover color for all navbar items */
+.navbar-links a:hover {
+  color: #f44336; /* Red hover color for all links */
+}
+
+/* Button style for linktree */
 .linktree-button {
   background-color: #000;
   color: #eee !important; /* Ensuring the text color is white */
   padding: 10px 15px;
   border-radius: 5px;
   text-decoration: none;
+  transition: background-color 0.3s ease; /* Smooth transition for hover */
+}
+
+.linktree-button:hover {
+  background-color: #333; /* Slightly lighter black on hover */
 }

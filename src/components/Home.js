@@ -8,7 +8,7 @@ function Home() {
     <div className="home-container">
       <h1 className="title">WRATHFULPEST13</h1>
       <div className="image-container">
-        <img src={process.env.PUBLIC_URL + '/images/your-image-name.jpg'} alt="Artistic Home" className="homepage-image" />
+        <img src={process.env.PUBLIC_URL + '/images/homepage.png'} alt="Artistic Home" className="homepage-image" />
       </div>
       
       {/* Replace the static text with HomeNavbar for "ART FILMS STORY ME" */}

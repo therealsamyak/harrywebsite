@@ -3,6 +3,7 @@ import './Story.css'; // Import the CSS file
 
 function Story() {
   const [story, setStory] = useState('');
+  const [loading, setLoading] = useState(true); // Add a loading state
 
   useEffect(() => {
     // Fetch story HTML from the Google Docs link
@@ -10,17 +11,27 @@ function Story() {
       .then((response) => response.text())
       .then((data) => {
         setStory(data); // Set the HTML string
+        setLoading(false); // Set loading to false after the fetch
       })
-      .catch((error) => console.error('Error fetching story:', error));
+      .catch((error) => {
+        console.error('Error fetching story:', error);
+        setLoading(false); // Stop loading if an error occurs
+      });
   }, []);
 
   return (
     <section className="section story">
-      <h1 className="story-title">Story</h1> {/* Add the title */}
-      <article
-        className="story-content"
-        dangerouslySetInnerHTML={{ __html: story }} // Render the HTML content
-      />
+      {loading ? (
+        <span class="loader"></span> // Render loading spinner while fetching
+      ) : (
+        <>
+          <h1 className="story-title">Story</h1> {/* Add the title */}
+          <article
+            className="story-content"
+            dangerouslySetInnerHTML={{ __html: story }} // Render the HTML content
+          />
+        </>
+      )}
     </section>
   );
 }

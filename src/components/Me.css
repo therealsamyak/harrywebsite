@@ -19,13 +19,12 @@
   .me-content {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    max-width: 700px; /* Max width for the content */
+    max-width: 600px; /* Max width for the content */
     width: 100%;
   }
   
   .me-image {
-    max-width: 55%;
+    max-width: auto;
     height: auto;
     border-radius: 8px;
     margin-bottom: 5px;
@@ -34,14 +33,14 @@
   }
   
   .me-description {
-    font-size: 25px;
+    font-size: 1.3rem;
     line-height: 1.2;
     margin-bottom: 5px;
     font-weight: 100;
   }
   
   .me-link {
-    font-size: 25px;
+    font-size: 1.3rem;
     color: #000;
     text-decoration: none;
   }

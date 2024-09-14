@@ -22,7 +22,7 @@
 }
 
 .homepage-image {
-  height: 400px;
+  height: 450px;
   width: auto;
 
 }
@@ -93,6 +93,11 @@
     margin: 10px 0;
   }
 
+  .image-container {
+    margin-top: 0px;
+    margin-bottom: 0px;
+  }
+
   .home-container {
     height: auto;
     overflow-y: scroll;
@@ -100,10 +105,13 @@
 
   .home-title {
     margin-top: 20px;
-    font-size: 2.2rem
+    margin-bottom: 0px;
+    margin-left: 5px;
+    margin-right: 5px;
+    font-size: 2.3rem;
   }
 
   .homepage-image {
-    height: 600px
+    height: 750px
   }
 }

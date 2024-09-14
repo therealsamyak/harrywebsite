@@ -15,32 +15,35 @@ function App() {
 
   return (
     <div className="App">
-      <Routes>
-        {/* If on home page, show only Home */}
-        <Route 
-          path="/" 
-          element={<Home />} 
-        />
-        
-        {/* Other routes */}
-        <Route 
-          path="/*" 
-          element={
-            <>
-              <Navbar />
-              <Routes>
-                <Route path="/art" element={<ArtGallery />} />
-                <Route path="/films" element={<Films />} />
-                <Route path="/story" element={<Story />} />
-                <Route path="/me" element={<Me />} />
-              </Routes>
-            </>
-          } 
-        />
-      </Routes>
+      <div className='main'>
+        <Routes>
+          {/* If on home page, show only Home */}
+          <Route 
+            path="/" 
+            element={<Home />} 
+          />
+          
+          {/* Other routes */}
+          <Route 
+            path="/*" 
+            element={
+              <>
+                <Navbar />
+                <Routes>
+                  <Route path="/art" element={<ArtGallery />} />
+                  <Route path="/films" element={<Films />} />
+                  <Route path="/story" element={<Story />} />
+                  <Route path="/me" element={<Me />} />
+                </Routes>
+              </>
+            } 
+          />
+        </Routes>
+      </div>
       
       {/* Conditionally render Footer based on current route */}
       <footer>{location.pathname !== '/' && <Footer />}</footer>
+      
     </div>
   );
 }

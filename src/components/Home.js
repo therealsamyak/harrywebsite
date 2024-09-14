@@ -6,7 +6,7 @@ import './Home.css'; // Import the combined CSS for the Home component
 function Home() {
   return (
     <div className="home-container">
-      <h1 class="home-title">WRATHFULPEST13</h1>
+      <h1 className="home-title">WRATHFULPEST13</h1>
       
       <div className="image-container">
         <img

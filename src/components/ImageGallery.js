@@ -33,10 +33,15 @@ const ImageGallery = () => {
           const url = file.downloadUrl ? 
             `${file.downloadUrl}&key=${API_KEY}` : 
             (file.embedLink || file.alternateLink);
-          return url;
+          return { url, title: file.title }; // Include the title with the URL
         });
 
-        setImageUrls(urls);
+        // Sort images by the filename (title)
+        urls.sort((a, b) => a.title.localeCompare(b.title));
+
+        // Extract sorted URLs
+        setImageUrls(urls.map(file => file.url));
+
       } catch (error) {
         console.error('Error fetching images:', error);
       }

@@ -22,7 +22,7 @@ function Story() {
   return (
     <section className="section story">
       {loading ? (
-        <span class="loader"></span> // Render loading spinner while fetching
+        <span className="loader"></span> // Render loading spinner while fetching
       ) : (
         <>
           <h1 className="story-title">Story</h1> {/* Add the title */}

@@ -40,7 +40,7 @@ function App() {
       </Routes>
       
       {/* Conditionally render Footer based on current route */}
-      {location.pathname !== '/' && <Footer />}
+      <footer>{location.pathname !== '/' && <Footer />}</footer>
     </div>
   );
 }

@@ -1,52 +1,109 @@
 /* src/components/Home.css */
+
+/* Home container */
 .home-container {
-    display: flex;
-    flex-direction: column; /* Stack items vertically */
-    align-items: center;    /* Center horizontally */
-    justify-content: center; /* Center vertically */
-    height: 100vh; /* Ensure the container takes up the full viewport height */ /* Optional: Add a background color if needed */
-    text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  text-align: center;
+}
+
+.home-title {
+  font-size: 3rem; /* Adjust size as needed */
+  font-weight: bold;
+  margin-bottom: 20px;
+  margin-top: 0; /* Remove any top margin */
+}
+
+.image-container {
+  margin: 20px;
+}
+
+.homepage-image {
+  height: 400px;
+  width: auto;
+
+}
+
+/* Navbar styling */
+.home-navbar {
+  display: flex;
+  justify-content: center;
+  vertical-align: bottom;
+  margin-top: 10px;
+}
+
+.homenavbar-links {
+  list-style-type: none;
+  display: flex;
+  justify-content: center;
+  padding: 0;
+  flex-direction: row;
+}
+
+.homenavbar-links li {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 300;
+  margin: 0 30px;
+  position: relative;
+}
+
+.homenavbar-links li a {
+  color: black;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  position: relative;
+  z-index: 1;
+}
+
+.homenavbar-links li::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  background-color: rgba(255, 99, 71, 0.3);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s ease-in-out;
+  z-index: 0;
+}
+
+.homenavbar-links li:hover::before {
+  transform: scaleX(1);
+}
+
+/* Responsive styling for small screens */
+@media (max-width: 640px) {
+  .homenavbar-links {
+    flex-direction: column;
   }
-  
-  .title {
-    font-size: 3rem;
-    font-weight: bold;
-    margin-bottom: 20px;
+
+  .homenavbar-links li {
+    margin: 10px 0;
   }
-  
-  .image-container {
-    margin: 20px;
+
+  .home-container {
+    height: auto;
+    overflow-y: scroll;
   }
-  
-  .homepage-image {
-    height: 400px; /* Set a specific height (adjust as needed) */
-    width: auto; /* Ensure the width adjusts automatically to maintain aspect ratio */
-    object-fit: cover; /* Or 'contain' if you want the entire image to be visible within the height */
-  }
-  
-  
-  .footer-text {
-    font-size: 1.5rem;
+
+  .home-title {
     margin-top: 20px;
-    font-weight: bold;
+    font-size: 2.2rem
   }
-  
-  .navbar-links {
-    display: flex;
-    justify-content: space-around; /* Or use space-between */
-    align-items: center;
-    list-style-type: none; /* Remove default bullet points */
-    padding: 0; /* Ensure no extra padding */
-    margin: 0; /* Ensure no extra margin */
-}
 
-.navbar-links li {
-    flex: 1; /* This makes sure each link takes equal space */
-    text-align: center; /* Centers the text in the li */
-    padding: 10px; /* Add padding for better clickability */
-}
-
-.navbar-links a {
-    text-decoration: none;
-    color: #000; /* Adjust color to your design */
+  .homepage-image {
+    height: 600px
+  }
 }

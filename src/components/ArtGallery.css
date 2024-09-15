@@ -1,3 +1,9 @@
 .section.art-gallery {
     text-align: center; /* Centers the text */
   }
+
+.art-title {
+    font-size: 2rem; /* Font size for the title */
+    font-weight: bold;
+    margin-bottom: 5px;
+ }

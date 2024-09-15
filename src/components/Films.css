@@ -1,4 +1,5 @@
-.section.art-gallery {
-    text-align: center; /* Centers the text */
-    padding: 20px; /* Adds some padding around the content */
-  }
+.film-title {
+    font-size: 2rem; /* Font size for the title */
+    font-weight: bold;
+    margin-bottom: 5px;
+}

@@ -5,7 +5,7 @@ import ImageGallery from './ImageGallery';
 function ArtGallery() {
   return (
     <section className="section art-gallery">
-      <h1>Art</h1>
+      <h1 className='art-title'>Art</h1>
 
       {/* Art */}
       <ImageGallery />

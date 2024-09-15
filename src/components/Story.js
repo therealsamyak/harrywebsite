@@ -26,6 +26,7 @@ function Story() {
       ) : (
         <>
           <h1 className="story-title">Story</h1> {/* Add the title */}
+          <br/>
           <article
             className="story-content"
             dangerouslySetInnerHTML={{ __html: story }} // Render the HTML content

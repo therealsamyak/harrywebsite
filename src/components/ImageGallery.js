@@ -51,9 +51,14 @@ const ImageGallery = () => {
   }, [API_KEY, FOLDER_ID]);
 
   return (
-    <div>
-      {imageUrls.map((url, index) => (
-        <img key={index} src={url} alt={`Image ${index + 1}`} style={{ width: '80%', height: 'auto', marginBottom: '10px' }} />
+    <div className="flex flex-col items-center justify-center min-h-screen">
+      {imageUrls.map((image, index) => (
+          <img
+          key={index}
+          src={image}
+          alt={`Art Gallery ${index + 1}`}
+          className="w-full lg:w-4/5 h-auto mb-4"
+          />
       ))}
     </div>
   );

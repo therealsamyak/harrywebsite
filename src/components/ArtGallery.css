@@ -1,5 +1,6 @@
 .section.art-gallery {
     text-align: center; /* Centers the text */
+    width: 100%;
   }
 
 .art-title {

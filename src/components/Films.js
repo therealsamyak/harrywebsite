@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import "./Films.css"
 
 function Films() {
   const [videoUrls, setVideoUrls] = useState([]);
@@ -43,7 +44,7 @@ function Films() {
 
   return (
     <section className="section films">
-      <h1>Films</h1>
+      <h1 className='film-title'>Films</h1>
       {/* Responsive Embedded YouTube Videos */}
       {videoUrls.length > 0 ? (
         videoUrls.map((url, index) => (

@@ -1,6 +1,6 @@
 import React from 'react';
 import "./ArtGallery.css"
-import ImageGallery from './ImageGallery';
+import ImageGalleryLocal from './ImageGalleryLocal';
 
 function ArtGallery() {
   return (
@@ -8,7 +8,7 @@ function ArtGallery() {
       <h1 className='art-title'>Art</h1>
 
       {/* Art */}
-      <ImageGallery />
+      <ImageGalleryLocal/>
     </section>
   );
 }

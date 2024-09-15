@@ -52,10 +52,10 @@ const ImageGallery = () => {
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen">
-      {imageUrls.map((image, index) => (
+      {imageUrls.map((url, index) => (
           <img
           key={index}
-          src={image}
+          src={url}
           alt={`Art Gallery ${index + 1}`}
           className="w-full lg:w-4/5 h-auto mb-4"
           />

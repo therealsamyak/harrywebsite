@@ -10,7 +10,7 @@ function Home() {
       
       <div className="image-container">
         <img
-          src={process.env.PUBLIC_URL + '/images/homepage.png'}
+          src={process.env.PUBLIC_URL + '/images/homepagehomepage.png'}
           alt="Artistic Home"
           className="homepage-image"
         />

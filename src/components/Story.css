@@ -6,6 +6,7 @@
     align-items: center; /* Center the content vertically */
     min-height: 100vh; /* Make sure the section takes up the full viewport height */
     padding: 20px;
+    padding-top: 0px;
     text-align: center;
   }
   
@@ -35,3 +36,11 @@
         transform: rotate(360deg);
     }
     } 
+
+.story-title {
+    font-size: 1.6rem; /* Font size for the title */
+    font-weight: bold;
+    padding: 0;
+    margin-bottom: 5px;
+    font-family: Arial, Helvetica, sans-serif;
+}

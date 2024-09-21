@@ -92,7 +92,7 @@
 
   .homenavbar-links li {
     margin: 2px 0;
-    font-size: 1.5rem;
+    font-size: 1.7rem;
   }
 
   .home-navbar {
@@ -107,16 +107,17 @@
   }
 
   .image-container .homepage-image {
-    max-height: 250px;
+    max-height: 300px;
   }
 
   .home-container {
     height: auto;
     overflow-y: scroll;
+    justify-content: flex-start;
   }
 
   .home-title {
-    margin-top: 20px;
+    margin-top: 30px;
     margin-bottom: 0px;
     margin-left: 5px;
     margin-right: 5px;

@@ -46,6 +46,7 @@ jobs:
     - name: Deploy changes
       env:
         COMMIT_PASSPHRASE: ${{ secrets.COMMIT_PASSPHRASE }}
+        CI: false
       run: | 
         npm run build
         node deploy.js

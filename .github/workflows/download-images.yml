@@ -74,7 +74,7 @@ jobs:
         git push origin HEAD
 
     - name: Deploy changes
-        env:
-          COMMIT_PASSPHRASE: ${{ secrets.COMMIT_PASSPHRASE }}
-        run: |
-          echo "${{ secrets.COMMIT_PASSPHRASE }}" | npm run deploy
+      env:
+        COMMIT_PASSPHRASE: ${{ secrets.COMMIT_PASSPHRASE }}
+      run: |
+        echo "${{ secrets.COMMIT_PASSPHRASE }}" | npm run deploy

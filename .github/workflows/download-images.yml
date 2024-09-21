@@ -2,7 +2,7 @@ name: Download Images from Google Drive
 
 on:
   schedule:
-    - cron: '0 * * * *'  # Every hour
+    - cron: '0 0 * * *'  # Every hour
   workflow_dispatch:  # Allows manual triggering
 
 jobs:
@@ -16,10 +16,12 @@ jobs:
     - name: Set up Node.js
       uses: actions/setup-node@v2
       with:
-        node-version: '16'  # Use a stable Node.js version
+        node-version: '20'  # Use a stable Node.js version
 
     - name: Install dependencies
-      run: npm install googleapis
+      run: |
+        npm install googleapis
+        npm install expect
 
     - name: Delete existing images
       run: |

@@ -4,7 +4,11 @@ const { exec } = require('child_process');
 const passphrase = process.env.COMMIT_PASSPHRASE;
 
 // Execute the deploy command and pass the passphrase
-const deployCommand = `echo "${passphrase}" | npm run deploy`;
+const deployCommand = `npm run deploy`;
+
+const options = {
+    env: { ...process.env, COMMIT_PASSPHRASE: passphrase }
+  };
 
 exec(deployCommand, (error, stdout, stderr) => {
   if (error) {

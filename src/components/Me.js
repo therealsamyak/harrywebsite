@@ -7,7 +7,7 @@ function Me() {
       {/* <h1 className="me-title">Me</h1> */}
       <div className="me-content grid grid-rows-3 gap-3 w-full">
         <img
-          src={process.env.PUBLIC_URL + '/images/mepicture.jpg'}
+          src={process.env.PUBLIC_URL + '/images/mepicture.jpeg'}
           alt="Harry Ross"
           className="w-full h-auto object-cover"
         />

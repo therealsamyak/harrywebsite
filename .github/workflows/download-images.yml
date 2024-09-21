@@ -1,8 +1,8 @@
 name: Download Images from Google Drive
 
 on:
-  schedule:
-    - cron: '0 * * * *'  # Every hour
+  # schedule:
+  #   - cron: '0 * * * *'  # Every hour
   workflow_dispatch:  # Allows manual triggering
 
 jobs:

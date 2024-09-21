@@ -1,0 +1,79 @@
+name: Download Images from Google Drive
+
+on:
+  schedule:
+    - cron: '0 * * * *'  # Every hour
+
+jobs:
+  download-images:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '14'
+
+    - name: Install dependencies
+      run: npm install googleapis
+
+    - name: Delete existing images
+      run: |
+        rm -rf src/art_gallery/*
+    
+    - name: Download images from Google Drive
+      run: |
+        echo "${{ secrets.GOOGLE_SERVICE_ACCOUNT_KEY }}" > service-account-key.json
+        node -e "
+          const { google } = require('googleapis');
+          const fs = require('fs');
+          const path = require('path');
+
+          const auth = new google.auth.GoogleAuth({
+            keyFile: 'service-account-key.json',
+            scopes: ['https://www.googleapis.com/auth/drive.readonly'],
+          });
+
+          const drive = google.drive({ version: 'v3', auth });
+
+          async function downloadImages() {
+            const folderId = '${{ secrets.GOOGLE_DRIVE_FOLDER_ID }}';
+            const res = await drive.files.list({
+              q: `'${folderId}' in parents and mimeType contains 'image/'`,
+              fields: 'files(id, name)',
+            });
+            const files = res.data.files;
+
+            for (const file of files) {
+              const dest = fs.createWriteStream(path.join('src/art_gallery', file.name));
+              const response = await drive.files.get(
+                { fileId: file.id, alt: 'media' },
+                { responseType: 'stream' }
+              );
+              response.data.pipe(dest);
+              await new Promise((resolve, reject) => {
+                dest.on('finish', resolve);
+                dest.on('error', reject);
+              });
+            }
+          }
+
+          downloadImages().catch(console.error);
+        "
+
+    - name: Commit and push changes
+      run: |
+        git config --local user.email "websiteharry13@gmail.com"
+        git config --local user.name "Harry Website"
+        git add src/art_gallery
+        git commit -m "Update images from Google Drive" || echo "No changes to commit"
+        git push origin HEAD
+
+    - name: Deploy changes
+        env:
+          COMMIT_PASSPHRASE: ${{ secrets.COMMIT_PASSPHRASE }}
+        run: |
+          echo "${{ secrets.COMMIT_PASSPHRASE }}" | npm run deploy

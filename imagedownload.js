@@ -3,7 +3,7 @@ const fs = require('fs');
 const path = require('path');
 
 // Load the service account key from an environment variable or a file
-const serviceAccountKey = secrets?.GOOGLE_SERVICE_ACCOUNT_KEY || fs.readFileSync('harrywebsitekey.json', 'utf8');
+const serviceAccountKey = process.env.GOOGLE_SERVICE_ACCOUNT_KEY || fs.readFileSync('harrywebsitekey.json', 'utf8');
 
 // Initialize the Google Auth client
 const auth = new google.auth.GoogleAuth({

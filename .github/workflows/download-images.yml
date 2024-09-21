@@ -41,6 +41,8 @@ jobs:
         git push origin HEAD
 
     - name: Deploy changes
+      env:
+        COMMIT_PASSPHRASE: ${{ secrets.COMMIT_PASSPHRASE }}
       run: |
         expect -c "
         spawn npm run deploy

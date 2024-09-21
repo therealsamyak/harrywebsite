@@ -15,8 +15,8 @@ const auth = new google.auth.GoogleAuth({
 const drive = google.drive({ version: 'v3', auth });
 
 async function downloadImages() {
-  const folderId = '1xt9AcOdcBb7gLSWTQOsJTQgJU5OLXLvX';  // Use environment variable
-
+  const folderId = '1xt9AcOdcBb7gLSWTQOsJTQgJU5OLXLvX';
+  
   // Ensure the art_gallery directory exists
   const artGalleryPath = path.join('src/art_gallery');
   if (!fs.existsSync(artGalleryPath)) {

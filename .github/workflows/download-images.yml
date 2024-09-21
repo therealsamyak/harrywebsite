@@ -21,7 +21,6 @@ jobs:
     - name: Install dependencies
       run: |
         npm install googleapis
-        npm install expect
 
     - name: Delete existing images
       run: |
@@ -45,10 +44,4 @@ jobs:
     - name: Deploy changes
       env:
         COMMIT_PASSPHRASE: ${{ secrets.COMMIT_PASSPHRASE }}
-      run: |
-        expect -c "
-        spawn npm run deploy
-        expect \"*\"  # Matches any prompt
-        send \"${{ secrets.COMMIT_PASSPHRASE }}\r\"
-        interact
-        "
+      run: node deploy.js

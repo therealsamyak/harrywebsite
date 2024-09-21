@@ -1,23 +1,44 @@
-const { exec } = require('child_process');
+const { NodeSSH } = require('node-ssh');
+const ssh = new NodeSSH();
+const fs = require('fs');
+const path = require('path');  // Add this line to import the path module
 
-// Read the passphrase from the environment variable
-const passphrase = process.env.COMMIT_PASSPHRASE;
+// Read the passphrase from the environment variable or a local file
+const passphrase = process.env.COMMIT_PASSPHRASE || fs.readFileSync('local-passphrase.txt', 'utf8').trim();
 
-// Execute the deploy command and pass the passphrase
-const deployCommand = `npm run deploy`;
+async function deploy() {
+  try {
+    await ssh.connect({
+      host: '45.55.197.143',
+      username: 'root',
+      password: passphrase
+    });
 
-const options = {
-    env: { ...process.env, COMMIT_PASSPHRASE: passphrase }
-  };
+    console.log('SSH Connection established.');
 
-exec(deployCommand, (error, stdout, stderr) => {
-  if (error) {
+    // Upload the build directory to the remote server
+    await ssh.putDirectory('build', '/var/www/html/', {
+      recursive: true,
+      concurrency: 10,
+      validate: function(itemPath) {
+        const baseName = path.basename(itemPath);
+        return baseName.substr(0, 1) !== '.' && baseName !== 'node_modules'; // do not allow dot files
+      },
+      tick: function(localPath, remotePath, error) {
+        if (error) {
+          console.error(`Failed to transfer ${localPath}: ${error}`);
+        } else {
+          console.log(`Successfully transferred ${localPath}`);
+        }
+      }
+    });
+
+    console.log('Deployment completed successfully.');
+  } catch (error) {
     console.error(`Error during deployment: ${error.message}`);
-    return;
+  } finally {
+    ssh.dispose();
   }
-  if (stderr) {
-    console.error(`Deployment stderr: ${stderr}`);
-    return;
-  }
-  console.log(`Deployment stdout: ${stdout}`);
-});
+}
+
+deploy();

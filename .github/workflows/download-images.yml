@@ -20,7 +20,9 @@ jobs:
 
     - name: Install dependencies
       run: |
+        npm install
         npm install googleapis
+        npm install node-ssh
 
     - name: Delete existing images
       run: |

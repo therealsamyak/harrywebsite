@@ -32,37 +32,47 @@ jobs:
           const { google } = require('googleapis');
           const fs = require('fs');
           const path = require('path');
-
+        
           const auth = new google.auth.GoogleAuth({
             keyFile: 'service-account-key.json',
             scopes: ['https://www.googleapis.com/auth/drive.readonly'],
           });
-
+        
           const drive = google.drive({ version: 'v3', auth });
-
+        
           async function downloadImages() {
-            const folderId = '${{ secrets.GOOGLE_DRIVE_FOLDER_ID }}';
+            const folderId = process.env.GOOGLE_DRIVE_FOLDER_ID;  // Use environment variable
             const res = await drive.files.list({
-              q: `'${folderId}' in parents and mimeType contains 'image/'`,
+              q: \`'\${folderId}' in parents and mimeType contains 'image/'\`,
               fields: 'files(id, name)',
             });
+        
             const files = res.data.files;
-
+        
+            if (!files.length) {
+              console.log('No files found.');
+              return;
+            }
+        
             for (const file of files) {
               const dest = fs.createWriteStream(path.join('src/art_gallery', file.name));
               const response = await drive.files.get(
                 { fileId: file.id, alt: 'media' },
                 { responseType: 'stream' }
               );
+        
               response.data.pipe(dest);
               await new Promise((resolve, reject) => {
                 dest.on('finish', resolve);
                 dest.on('error', reject);
               });
+              console.log(\`Downloaded: \${file.name}\`);
             }
           }
-
-          downloadImages().catch(console.error);
+        
+          downloadImages().catch(err => {
+            console.error('Error downloading images:', err);
+          });
         "
 
     - name: Commit and push changes

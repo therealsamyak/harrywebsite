@@ -10,6 +10,12 @@
   text-align: center;
 }
 
+@supports (height: 100dvh) {
+  .home-container {
+    min-height: 100dvh;
+  }
+}
+
 .home-title {
   font-size: 2.6rem; /* Adjust size as needed */
   font-weight: bold;
@@ -113,7 +119,8 @@
   .home-container {
     height: auto;
     overflow-y: scroll;
-    justify-content: flex-start;
+    align-items: center;
+    justify-content: center;
   }
 
   .home-title {

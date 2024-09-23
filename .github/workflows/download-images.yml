@@ -1,4 +1,4 @@
-name: Download Images from Google Drive
+name: Download Images from Google Drive & Deploy Website
 
 on:
   schedule:

@@ -22,7 +22,7 @@ async function deploy() {
       concurrency: 10,
       validate: function(itemPath) {
         const baseName = path.basename(itemPath);
-        return baseName.substr(0, 1) !== '.' && baseName !== 'node_modules'; // do not allow dot files
+        return baseName.slice(0, 1) !== '.' && baseName !== 'node_modules'; // do not allow dot files
       },
       tick: function(localPath, remotePath, error) {
         if (error) {

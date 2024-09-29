@@ -20,10 +20,10 @@ async function deploy() {
     await ssh.putDirectory('build', '/var/www/html/', {
       recursive: true,
       concurrency: 10,
-      validate: function(itemPath) {
-        const baseName = path.basename(itemPath);
-        return baseName.slice(0, 1) !== '.' && baseName !== 'node_modules'; // do not allow dot files
-      },
+      // validate: function(itemPath) {
+      //   const baseName = path.basename(itemPath);
+      //   return baseName.slice(0, 1) !== '.' && baseName !== 'node_modules'; // do not allow dot files
+      // },
       tick: function(localPath, remotePath, error) {
         if (error) {
           console.error(`Failed to transfer ${localPath}: ${error}`);

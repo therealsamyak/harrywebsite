@@ -39,7 +39,7 @@ jobs:
       run: |
         git config --local user.email "websiteharry13@gmail.com"
         git config --local user.name "Harry Website"
-        git add src/art_gallery
+        git add .
         git commit -m "Update images from Google Drive" || echo "No changes to commit"
         git push origin HEAD
 

@@ -28,7 +28,7 @@ async function deploy() {
         if (error) {
           console.error(`Failed to transfer ${localPath}: ${error}`);
         } else {
-          console.log(`Successfully transferred ${localPath}`);
+          console.log(`Successfully transferred ${remotePath}`);
         }
       }
     });

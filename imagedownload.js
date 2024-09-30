@@ -3,7 +3,9 @@ const fs = require('fs');
 const path = require('path');
 
 // Load the service account key from an environment variable or a file
-const serviceAccountKey = process.env.GOOGLE_SERVICE_ACCOUNT_KEY || fs.readFileSync('harrywebsitekey.json', 'utf8');
+const serviceAccountKey =
+  process.env.GOOGLE_SERVICE_ACCOUNT_KEY ||
+  fs.readFileSync('harrywebsitekey.json', 'utf8');
 
 // Initialize the Google Auth client
 const auth = new google.auth.GoogleAuth({
@@ -14,9 +16,13 @@ const auth = new google.auth.GoogleAuth({
 // Initialize the Google Drive client
 const drive = google.drive({ version: 'v3', auth });
 
+function wait(ms) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
 async function downloadImages() {
   const folderId = '1xt9AcOdcBb7gLSWTQOsJTQgJU5OLXLvX';
-  
+
   // Ensure the art_gallery directory exists
   const artGalleryPath = path.join('src/art_gallery');
   if (!fs.existsSync(artGalleryPath)) {
@@ -49,8 +55,10 @@ async function downloadImages() {
     });
     console.log(`Downloaded: ${file.name}`);
   }
+
+  await wait(1500);
 }
 
-downloadImages().catch(err => {
+downloadImages().catch((err) => {
   console.error('Error downloading images:', err);
 });

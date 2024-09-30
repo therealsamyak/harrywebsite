@@ -19,7 +19,7 @@ async function deploy() {
     // Upload the build directory to the remote server
     await ssh.putDirectory('build', '/var/www/html/', {
       recursive: true,
-      concurrency: 10,
+      concurrency: 1,
       // validate: function(itemPath) {
       //   const baseName = path.basename(itemPath);
       //   return baseName.slice(0, 1) !== '.' && baseName !== 'node_modules'; // do not allow dot files
